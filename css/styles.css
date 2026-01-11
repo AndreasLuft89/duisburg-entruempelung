@@ -1,0 +1,723 @@
+/* =========================
+   RESET & BASICS
+========================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111827;
+  background: #f9fafb;
+  line-height: 1.5;
+}
+
+/* Bilder nie ausufern lassen */
+ {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Links: kein lila, kein underline */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-alt {
+  padding: 4rem 0;
+  background: #f3f4f6;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.section-intro {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 2.5rem;
+  color: #4b5563;
+}
+
+/* Damit das fixe Logo rechts NICHT über Inhalte liegt (Desktop) */
+main {
+  padding-top: 10px;
+  padding-right: 360px; /* Platz für das große Logo rechts */
+}
+
+/* =========================
+   HEADER / NAV (schwarzer Balken)
+========================= */
+
+.header {
+  background: #0f172a;
+  color: #f9fafb;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 0.9rem 0;
+  width: 100%;
+}
+
+.header-inner {
+  max-width: 1400px;   /* Header-Inhalt breiter */
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* HOME Link links */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-text {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+/* Navigation mittig */
+.nav {
+  display: flex;
+  gap: 1.3rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
+.nav a {
+  color: #e5e7eb;
+  font-size: 1rem;
+  padding: 0.35rem 0.55rem;
+  border-radius: 10px;
+}
+
+.nav a:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Call Button ganz rechts */
+.header-call {
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 0.75rem 1.35rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #ffffff;
+}
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-secondary {
+  background: #e5e7eb;
+  color: #111827;
+}
+.btn-secondary:hover {
+  background: #d1d5db;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* =========================
+   LOGO BADGE (unter Header rechts)
+========================= */
+
+.logo-badge {
+  position: fixed;
+  top: 86px;
+  right: 18px;
+  z-index: 40;
+
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 10px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+}
+
+/* WICHTIG: nicht 300x300, das ist zu massiv -> wirkt schnell “falsch” */
+.logo-badge  {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  padding: 3.5rem 0 3rem;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: 2.3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  margin-bottom: 1.5rem;
+  color: #4b5563;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #374151;
+}
+
+.hero-bullets li {
+  margin-bottom: 0.25rem;
+}
+
+/* schwarzer Kasten mit Telefon: kleiner */
+.hero-box {
+  background: #0f172a;
+  color: #f9fafb;
+  padding: 1rem;
+  border-radius: 0.9rem;
+  max-width: 320px;
+  margin-left: auto;
+}
+
+.hero-box h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.hero-phone {
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fbbf24;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.hero-phone:hover {
+  text-decoration: underline;
+}
+
+.hero-small {
+  font-size: 0.85rem;
+  color: #d1d5db;
+}
+
+/* =========================
+   GRIDS & CARDS
+========================= */
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  margin: 0;
+  color: #4b5563;
+}
+
+/* =========================
+   BEFORE/AFTER (Galerie)
+========================= */
+
+.before-after-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.ba-item {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.ba-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #0f172a;
+}
+
+.ba-image-wrapper  {
+  width: 100%;
+  height: 100%;
+  max-height: 340px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.ba-image-wrapper:hover  {
+  transform: scale(1.03);
+}
+
+.badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: rgba(15, 23, 42, 0.9);
+  color: #f9fafb;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.badge-after {
+  background: rgba(34, 197, 94, 0.95);
+}
+
+/* =========================
+   TRANSPORT / IM EINSATZ
+========================= */
+
+.transport-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+.transport-item {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+}
+
+.transport-item  {
+  border-radius: 0.5rem;
+  max-height: 260px;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.transport-item figcaption {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+  text-align: center;
+}
+
+/* =========================
+   TIPPS & ABLAUF (NEU)  ✅
+   -> GILT AUF DESKTOP UND MOBILE KORREKT
+========================= */
+
+.tips-layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+
+  display: grid;
+  grid-template-columns: 1.3fr 1fr; /* links Tipps breiter, rechts Ablauf schmaler */
+  gap: 2rem;
+  align-items: start;
+}
+
+.tips-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+}
+
+.tips-card h3 {
+  margin: 0 0 0.9rem;
+  font-size: 1.2rem;
+}
+
+.tips-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.tips-list li {
+  position: relative;
+  padding-left: 1.6rem;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.tips-list li::before {
+  content: "✅";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.tips-note {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.steps-compact {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #374151;
+}
+
+.steps-compact li {
+  margin-bottom: 0.55rem;
+}
+
+/* =========================
+   PREISE (alt – kann bleiben)
+========================= */
+
+.steps {
+  padding-left: 1.2rem;
+  color: #4b5563;
+}
+.steps li {
+  margin-bottom: 0.4rem;
+}
+
+.price-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem;
+  color: #111827;
+}
+.price-list li {
+  margin-bottom: 0.3rem;
+}
+
+/* =========================
+   KONTAKT
+========================= */
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.contact-list li {
+  margin-bottom: 0.4rem;
+}
+
+.contact-list a {
+  color: #2563eb;
+}
+.contact-list a:hover {
+  text-decoration: underline;
+}
+
+.contact-form {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+}
+
+.form-row {
+  margin-bottom: 0.9rem;
+}
+
+.form-row label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  font: inherit;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.3);
+}
+/* DSGVO Checkbox sauber nebeneinander */
+.form-row.checkbox-row {
+  margin: 1rem 0;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-top: 0.2rem;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+}
+
+.checkbox-label span {
+  display: inline;
+  line-height: 1.4;
+}
+
+.checkbox-label a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+  background: #0f172a;
+  color: #9ca3af;
+  padding: 1.2rem 0;
+  font-size: 0.85rem;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: #e5e7eb;
+}
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   MISC
+========================= */
+
+.small {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+  main {
+    padding-right: 0; /* Logo überlappt sonst */
+  }
+
+  .logo-badge {
+    top: 82px;
+    right: 12px;
+  }
+
+  .logo-badge  {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grid-2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .nav {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .header-call {
+    margin-left: 0;
+  }
+
+  /* Tipps & Ablauf untereinander auf Tablet/Handy */
+  .tips-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .logo-badge {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .ba-item {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero {
+    padding-top: 2.5rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+}
+  /* =========================
+   COOKIE BANNER (DSGVO MINIMAL)
+========================= */
+
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+  display: none;
+}
+
+.cookie-box {
+  background: #0f172a;
+  color: #f9fafb;
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  max-width: 320px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.cookie-box p {
+  margin: 0 0 0.8rem;
+  font-size: 0.9rem;
+}
+
+.cookie-box a {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .cookie-banner {
+    left: 10px;
+    right: 10px;
+  }
+
+  .cookie-box {
+    max-width: none;
+  }
+}
+
+.nav a.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
