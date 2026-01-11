@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="favicon.png">
+
+  <title>Vielen Dank – Anfrage gesendet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html"><span class="brand-text">Home</span></a>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="container" style="text-align:center; max-width:700px;">
+      <h1>Vielen Dank für Ihre Anfrage!</h1>
+      <p>
+        Wir haben Ihre Nachricht erhalten und melden uns schnellstmöglich bei Ihnen.
+      </p>
+      <a href="index.html" class="btn-primary">Zurück zur Startseite</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> Entrümpelung – Alle Rechte vorbehalten.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<div id="cookie-banner" class="cookie-banner">
+  <div class="cookie-box">
+    <p>
+      Diese Website verwendet keine Tracking-Cookies.
+      Weitere Informationen finden Sie in der
+      <a href="datenschutz.html">Datenschutzerklärung</a>.
+    </p>
+    <button id="cookie-accept" class="btn-primary">OK</button>
+  </div>
+</div>
+
+<script>
+  const banner = document.getElementById("cookie-banner");
+  const btn = document.getElementById("cookie-accept");
+
+  if (!localStorage.getItem("cookiesAccepted")) {
+    banner.style.display = "block";
+  }
+
+  btn.addEventListener("click", () => {
+    localStorage.setItem("cookiesAccepted", "true");
+    banner.style.display = "none";
+  });
+</script>
+
+</body>
+</html>
